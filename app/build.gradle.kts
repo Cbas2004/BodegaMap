@@ -56,9 +56,19 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    // Retrofit: Se encarga de hacer las peticiones HTTP (GET, POST) a tu servidor
+    // Retrofit: conecta Android con backend
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
-// Converter Gson: Traduce automáticamente los JSON de Spring Boot a tus 'data class' de Kotlin
+    // Converter Gson: convierte JSON a objetos kotlin
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Logs HTTP : muestra requests en Logcat
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    //Dependencias de ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+
+    //Corrutinas
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 }
