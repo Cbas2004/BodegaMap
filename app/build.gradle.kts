@@ -1,15 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+
 }
 
 android {
     namespace = "com.sebas.bodegamap"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.sebas.bodegamap"
@@ -71,4 +68,7 @@ dependencies {
 
     //Corrutinas
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+
+    //Dependencia MapBox
+    implementation("com.mapbox.maps:android:11.4.1")
 }

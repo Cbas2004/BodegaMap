@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sebas.bodegamap.data.BodegaDTO
+import com.sebas.bodegamap.ui.screens.MapScreen
 import com.sebas.bodegamap.ui.theme.BodegaMapTheme
 import com.sebas.bodegamap.viewmodel.BodegaViewModel
 
@@ -32,13 +33,7 @@ class MainActivity : ComponentActivity() {
 
             BodegaMapTheme {
 
-                Scaffold(
-                    modifier = Modifier.fillMaxSize()
-                ) { innerPadding ->
-
-                    PantallaBodegas(
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                MapScreen()
 
                 }
 
@@ -46,7 +41,6 @@ class MainActivity : ComponentActivity() {
 
         }
     }
-}
 
 @Composable
 fun PantallaBodegas(

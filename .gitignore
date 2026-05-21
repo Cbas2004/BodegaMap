@@ -13,3 +13,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+# Tokens y configuraciones sensibles
+local.properties
+gradle.properties
+
+# Archivos de Mapbox
+app/src/main/res/values/mapbox_access.xml
