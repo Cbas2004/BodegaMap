@@ -12,32 +12,52 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = AmberPrimaryDark,
+    onPrimary = OnAmberPrimaryDark,
+    primaryContainer = AmberPrimaryContainerDark,
+    onPrimaryContainer = OnAmberPrimaryContainerDark,
+    secondary = GreenSecondaryDark,
+    onSecondary = OnGreenSecondaryDark,
+    secondaryContainer = GreenSecondaryContainerDark,
+    onSecondaryContainer = OnGreenSecondaryContainerDark,
+    tertiary = BlueTertiaryDark,
+    onTertiary = OnBlueTertiaryDark,
+    background = BackgroundDark,
+    onBackground = OnBackgroundDark,
+    surface = BackgroundDark,
+    onSurface = OnBackgroundDark,
+    surfaceVariant = SurfaceVariantDark,
+    onSurfaceVariant = OnSurfaceVariantDark
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = AmberPrimaryLight,
+    onPrimary = OnAmberPrimaryLight,
+    primaryContainer = AmberPrimaryContainerLight,
+    onPrimaryContainer = OnAmberPrimaryContainerLight,
+    secondary = GreenSecondaryLight,
+    onSecondary = OnGreenSecondaryLight,
+    secondaryContainer = GreenSecondaryContainerLight,
+    onSecondaryContainer = OnGreenSecondaryContainerLight,
+    tertiary = BlueTertiaryLight,
+    onTertiary = OnBlueTertiaryLight,
+    background = BackgroundLight,
+    onBackground = OnBackgroundLight,
+    surface = BackgroundLight,
+    onSurface = OnBackgroundLight,
+    surfaceVariant = SurfaceVariantLight,
+    onSurfaceVariant = OnSurfaceVariantLight
 )
 
 @Composable
 fun BodegaMapTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    // Desactivado por defecto: Material You (Android 12+) reemplazaría esta
+    // paleta propia por colores derivados del wallpaper del usuario, lo que
+    // hace que la marca se vea distinta en cada dispositivo. Se deja el
+    // parámetro disponible por si en el futuro se prefiere priorizar
+    // consistencia con el resto del sistema sobre identidad de marca.
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -53,6 +73,7 @@ fun BodegaMapTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        shapes = Shapes,
         content = content
     )
 }

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-    <background android:drawable="@drawable/ic_launcher_background" />
-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
-    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
-</adaptive-icon>
+<!--
+  bodegamap_icon.webp ya viene con esquinas redondeadas y fondo propios
+  "horneados" en la imagen (estilo icono plano, no una capa transparente
+  pensada para adaptive-icon). Por eso se referencia como <bitmap> plano en
+  vez de <adaptive-icon>: con minSdk 26, este calificador "anydpi" gana
+  siempre sobre mipmap-hdpi/xhdpi/etc, así que no hace falta generar copias
+  por densidad para que se vea en todos los dispositivos soportados.
+-->
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/bodegamap_icon" />

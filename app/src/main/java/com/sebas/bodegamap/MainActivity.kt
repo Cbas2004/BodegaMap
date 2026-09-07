@@ -4,90 +4,40 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Card
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.sebas.bodegamap.data.BodegaDTO
-import com.sebas.bodegamap.ui.screens.MapScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.sebas.bodegamap.ui.navigation.AppNavigation
 import com.sebas.bodegamap.ui.theme.BodegaMapTheme
-import com.sebas.bodegamap.viewmodel.BodegaViewModel
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Debe llamarse ANTES de super.onCreate() (contrato de la librería):
+        // así el splash cubre el arranque en frío hasta el primer frame de
+        // Compose, en vez de mostrar una pantalla en blanco intermedia.
+        installSplashScreen()
+
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
 
         setContent {
-
             BodegaMapTheme {
-
-                MapScreen()
-
-                }
-
-            }
-
-        }
-    }
-
-@Composable
-fun PantallaBodegas(
-    modifier: Modifier = Modifier,
-    viewModel: BodegaViewModel = viewModel()
-) {
-
-    val bodegas by viewModel.bodegas.collectAsState()
-
-    LazyColumn(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
-    ) {
-
-        items(bodegas) { bodega ->
-
-            Card(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-
-                Column(
-                    modifier = Modifier.padding(16.dp)
+                // Theme.BodegaMap (XML) hereda de Theme.Material.Light, con
+                // fondo de ventana blanco fijo, sin relación con el esquema
+                // de color de Compose (claro/oscuro). Sin este Surface, el
+                // espacio entre composables (fuera de cards/texto) deja ver
+                // ese blanco crudo del sistema en vez del fondo del tema.
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
                 ) {
-
-                    Text(
-                        text = bodega.nombre,
-                        style = MaterialTheme.typography.titleMedium
-                    )
-
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    Text(
-                        text = bodega.direccion ?: "Sin dirección"
-                    )
-
-                    Text(
-                        text = "Horario: ${bodega.horario ?: "No disponible"}"
-                    )
-
+                    AppNavigation()
                 }
-
             }
-
         }
-
     }
-
 }
