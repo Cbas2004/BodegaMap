@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Boxicons bxs-store (solid) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M21.08,7.72 L14.08,3.72 A1,1 0,0 0,13.16 3.5 A1,1 0,0 0,12.24 3.72 L5.24,7.72 A1,1 0,0 0,4.74 8.58 L4.74,20 A1,1 0,0 0,5.74 21 L18.74,21 A1,1 0,0 0,19.74 20 L19.74,8.58 A1,1 0,0 0,21.08,7.72 ZM12,4.14 L19.08,8.2 L12,12.26 L4.92,8.2 ZM6,10.38 L11,13.24 L11,18.88 L6,17.45 ZM13,18.88 L13,13.24 L18,10.38 L18,17.45 Z" />
+</vector>

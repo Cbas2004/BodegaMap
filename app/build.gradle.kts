@@ -71,4 +71,7 @@ dependencies {
 
     //Dependencia MapBox
     implementation("com.mapbox.maps:android:11.4.1")
+
+    // Boxicons para Compose (reemplaza Material Icons)
+    implementation(libs.boxicons)
 }
